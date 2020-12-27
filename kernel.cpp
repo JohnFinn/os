@@ -1,5 +1,4 @@
 #include <cstdint>
-
 #include "stringview.hpp"
 
 struct ColorNChar
@@ -22,8 +21,9 @@ void write_string(StringView string)
 }
 
 
-extern "C" void kmain(void* multiboot_struct, unsigned int magic_number){
-    write_string(STRING_VIEW("hello world, azaza"));
+extern "C" void kmain(void* multiboot_struct, unsigned int magic_number)
+{
+    write_string("hello world, azaza");
     while (1)
         ;
 }

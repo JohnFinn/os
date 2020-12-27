@@ -5,6 +5,12 @@ class StringView {
     size_t size_;
 public:
 
+    template<size_t Size>
+    StringView(const char(&arr)[Size])
+    : data_(arr),
+      size_(Size - 1)
+    {}
+
     StringView(const char* data, size_t size)
     : data_(data),
       size_(size)
@@ -18,5 +24,3 @@ public:
 
     const char* end() { return data_ + size_; }
 };
-
-#define STRING_VIEW(arr) StringView(arr, sizeof(arr)-1)
